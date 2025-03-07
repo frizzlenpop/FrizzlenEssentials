@@ -1,0 +1,202 @@
+# FrizzlenEssentials Configuration File
+
+# Storage settings
+storage:
+  # Storage type: yaml or mysql
+  type: "yaml"
+  # MySQL settings (only used if storage.type is set to mysql)
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "frizzlenessentials"
+    username: "root"
+    password: "password"
+    prefix: "fe_"
+    ssl: false
+
+# Teleportation settings
+teleportation:
+  # Cooldown in seconds between teleportations
+  cooldown: 3
+  # Delay in seconds before teleportation (set to 0 for instant teleportation)
+  delay: 3
+  # Whether to cancel teleportation when the player moves during the delay
+  cancel-on-move: true
+  # Maximum time in seconds a teleport request stays active
+  request-timeout: 60
+  # Whether to save player's last location when they teleport
+  save-last-location: true
+  # Maximum back locations to save per player
+  max-back-locations: 5
+
+# Home settings
+homes:
+  # Default maximum homes per player
+  default-max-homes: 3
+  # Maximum homes by permission node (permission is frizzlenessentials.homes.<amount>)
+  # The highest permission node will be used
+  max-homes-by-permission:
+    - 5
+    - 10
+    - 15
+    - 20
+  # Whether player can override an existing home with the same name
+  allow-override: true
+
+# Warp settings
+warps:
+  # If true, warps can be accessed by all players by default
+  public-by-default: true
+  # Whether to show warps that a player doesn't have permission to use in the warp list
+  show-inaccessible-warps: false
+
+# Spawn settings
+spawn:
+  # Whether to teleport players to spawn on join
+  teleport-on-join: false
+  # Whether to teleport players to spawn on respawn
+  teleport-on-respawn: true
+
+# Player utility settings
+player-utilities:
+  # Whether players' godmode status is persistent between server restarts
+  persistent-godmode: false
+  # Whether players' flight mode is persistent between server restarts
+  persistent-flight: false
+  # Maximum walking speed (vanilla default is 0.2)
+  max-walk-speed: 1.0
+  # Maximum flying speed (vanilla default is 0.1)
+  max-fly-speed: 1.0
+  # Maximum jump boost level
+  max-jump-boost: 10
+
+# Fun command settings
+fun-commands:
+  # Whether to show particle effects with animations
+  show-particles: true
+  # Whether to play sounds with animations
+  play-sounds: true
+
+# Administrative settings
+administration:
+  # Whether to log all administrative commands to console
+  log-admin-commands: true
+  # Whether vanished players can interact with blocks and entities
+  vanish-interaction: false
+  # Whether vanished players can pick up items
+  vanish-item-pickup: false
+
+# Message customization
+messages:
+  prefix: "&7[&aFrizzlenEssentials&7] &r"
+  colors:
+    primary: "&a"
+    secondary: "&7"
+    highlight: "&e"
+    error: "&c"
+    success: "&a"
+    warning: "&6"
+  
+  # Command messages
+  teleport:
+    teleporting: "{PRIMARY}Teleporting to {HIGHLIGHT}{player}{PRIMARY}..."
+    teleport-request-sent: "{PRIMARY}Teleport request sent to {HIGHLIGHT}{player}{PRIMARY}."
+    teleport-request-received: "{HIGHLIGHT}{player} {PRIMARY}wants to teleport to you. Use {HIGHLIGHT}/tpaccept {PRIMARY}or {HIGHLIGHT}/tpdeny{PRIMARY}."
+    teleport-here-request-sent: "{PRIMARY}Teleport here request sent to {HIGHLIGHT}{player}{PRIMARY}."
+    teleport-here-request-received: "{HIGHLIGHT}{player} {PRIMARY}wants you to teleport to them. Use {HIGHLIGHT}/tpaccept {PRIMARY}or {HIGHLIGHT}/tpdeny{PRIMARY}."
+    teleport-accepted: "{SUCCESS}Teleport request accepted."
+    teleport-denied: "{ERROR}Teleport request denied."
+    teleport-request-expired: "{ERROR}Teleport request has expired."
+    no-pending-requests: "{ERROR}You have no pending teleport requests."
+    teleport-all: "{PRIMARY}All players have been teleported to your location."
+    teleport-to-last-death: "{PRIMARY}Teleporting to your last death location."
+    no-death-location: "{ERROR}No death location found."
+    teleport-to-world: "{PRIMARY}Teleporting to world {HIGHLIGHT}{world}{PRIMARY}."
+    world-not-found: "{ERROR}World not found."
+    teleport-back: "{PRIMARY}Teleporting to your previous location."
+    no-back-location: "{ERROR}No previous location found."
+    
+  home:
+    home-set: "{SUCCESS}Home {HIGHLIGHT}{name} {SUCCESS}has been set."
+    home-override: "{WARNING}Home {HIGHLIGHT}{name} {WARNING}already exists. It has been overridden."
+    teleport-to-home: "{PRIMARY}Teleporting to home {HIGHLIGHT}{name}{PRIMARY}."
+    home-deleted: "{SUCCESS}Home {HIGHLIGHT}{name} {SUCCESS}has been deleted."
+    home-not-found: "{ERROR}Home {HIGHLIGHT}{name} {ERROR}not found."
+    max-homes-reached: "{ERROR}You have reached your maximum number of homes ({HIGHLIGHT}{count}{ERROR})."
+    homes-list: "{PRIMARY}Your homes: {HIGHLIGHT}{homes}"
+    no-homes: "{WARNING}You have no homes set."
+    
+  warp:
+    warp-set: "{SUCCESS}Warp {HIGHLIGHT}{name} {SUCCESS}has been created."
+    warp-deleted: "{SUCCESS}Warp {HIGHLIGHT}{name} {SUCCESS}has been deleted."
+    teleport-to-warp: "{PRIMARY}Teleporting to warp {HIGHLIGHT}{name}{PRIMARY}."
+    warp-not-found: "{ERROR}Warp {HIGHLIGHT}{name} {ERROR}not found."
+    warp-no-permission: "{ERROR}You don't have permission to use this warp."
+    warp-info: "{PRIMARY}Warp: {HIGHLIGHT}{name}\n{PRIMARY}Location: {SECONDARY}{world}, {x}, {y}, {z}\n{PRIMARY}Created by: {SECONDARY}{creator}"
+    warp-access-modified: "{SUCCESS}Access for warp {HIGHLIGHT}{name} {SUCCESS}has been modified for player {HIGHLIGHT}{player}{SUCCESS}."
+    
+  spawn:
+    spawn-set: "{SUCCESS}Server spawn location has been set."
+    teleport-to-spawn: "{PRIMARY}Teleporting to spawn."
+
+  player:
+    flight-enabled: "{SUCCESS}Flight mode enabled."
+    flight-disabled: "{ERROR}Flight mode disabled."
+    flight-enabled-other: "{SUCCESS}Flight mode enabled for {HIGHLIGHT}{player}{SUCCESS}."
+    flight-disabled-other: "{ERROR}Flight mode disabled for {HIGHLIGHT}{player}{ERROR}."
+    god-enabled: "{SUCCESS}God mode enabled."
+    god-disabled: "{ERROR}God mode disabled."
+    god-enabled-other: "{SUCCESS}God mode enabled for {HIGHLIGHT}{player}{SUCCESS}."
+    god-disabled-other: "{ERROR}God mode disabled for {HIGHLIGHT}{player}{ERROR}."
+    healed: "{SUCCESS}You have been healed."
+    healed-other: "{SUCCESS}You have healed {HIGHLIGHT}{player}{SUCCESS}."
+    fed: "{SUCCESS}Your hunger has been replenished."
+    fed-other: "{SUCCESS}You have fed {HIGHLIGHT}{player}{SUCCESS}."
+    speed-set: "{SUCCESS}{type} speed set to {HIGHLIGHT}{speed}{SUCCESS}."
+    speed-set-other: "{SUCCESS}{type} speed set to {HIGHLIGHT}{speed} {SUCCESS}for {HIGHLIGHT}{player}{SUCCESS}."
+    jump-boost-set: "{SUCCESS}Jump boost set to level {HIGHLIGHT}{level}{SUCCESS}."
+    hat-equipped: "{SUCCESS}You are now wearing your new hat!"
+    item-renamed: "{SUCCESS}Item renamed to {HIGHLIGHT}{name}{SUCCESS}."
+    item-lore-added: "{SUCCESS}Lore added to item."
+    item-repaired: "{SUCCESS}Item has been repaired."
+    items-stacked: "{SUCCESS}Items have been stacked."
+    more-items: "{SUCCESS}You now have a full stack of this item."
+    
+  fun:
+    sitting: "{PRIMARY}You are now sitting."
+    laying: "{PRIMARY}You are now laying down."
+    crawling: "{PRIMARY}You are now crawling."
+    spinning: "{PRIMARY}You are now spinning."
+    
+  admin:
+    uptime: "{PRIMARY}Server uptime: {HIGHLIGHT}{uptime}"
+    gc-started: "{PRIMARY}Garbage collection started."
+    debug-info: "{PRIMARY}Debug information for {HIGHLIGHT}{player}{PRIMARY}:\n{info}"
+    time-locked-day: "{SUCCESS}Time has been locked to day."
+    time-locked-night: "{SUCCESS}Time has been locked to night."
+    time-unlocked: "{SUCCESS}Time has been unlocked."
+    personal-time-set: "{SUCCESS}Your personal time has been set to {HIGHLIGHT}{time}{SUCCESS}."
+    personal-time-reset: "{SUCCESS}Your personal time has been reset."
+    personal-weather-set: "{SUCCESS}Your personal weather has been set to {HIGHLIGHT}{weather}{SUCCESS}."
+    personal-weather-reset: "{SUCCESS}Your personal weather has been reset."
+    world-info: "{PRIMARY}World information: {HIGHLIGHT}{world}\n{info}"
+    sudo-executed: "{SUCCESS}Forced {HIGHLIGHT}{player} {SUCCESS}to execute command: {HIGHLIGHT}{command}"
+    broadcast-sent: "{PRIMARY}Broadcast message sent."
+    player-killed: "{SUCCESS}Player {HIGHLIGHT}{player} {SUCCESS}has been killed."
+    inventory-cleared: "{SUCCESS}Inventory cleared for {HIGHLIGHT}{player}{SUCCESS}."
+    vanish-enabled: "{SUCCESS}Vanish mode enabled."
+    vanish-disabled: "{SUCCESS}Vanish mode disabled."
+    glow-enabled: "{SUCCESS}Glow effect enabled with color {HIGHLIGHT}{color}{SUCCESS}."
+    glow-disabled: "{SUCCESS}Glow effect disabled."
+    
+  errors:
+    no-permission: "{ERROR}You don't have permission to use this command."
+    player-not-found: "{ERROR}Player not found."
+    player-only: "{ERROR}This command can only be used by players."
+    console-only: "{ERROR}This command can only be used from the console."
+    invalid-syntax: "{ERROR}Invalid syntax. Usage: {HIGHLIGHT}{usage}"
+    cooldown: "{ERROR}You must wait {HIGHLIGHT}{time} {ERROR}seconds before using this command again."
+    target-is-self: "{ERROR}You cannot target yourself with this command."
+    invalid-world: "{ERROR}Invalid world."
+    invalid-item: "{ERROR}You must be holding an item to use this command."
+    invalid-number: "{ERROR}Invalid number." 

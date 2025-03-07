@@ -1,7 +1,340 @@
 name: FrizzlenEssentials
-version: '1.0-SNAPSHOT'
-main: org.frizzlenpop.frizzlenEssentials.FrizzlenEssentials
+version: '1.0.0'
+main: com.frizzlenpop.frizzlenessentials.FrizzlenEssentials
 api-version: '1.21'
 load: STARTUP
 authors: [ frizzlenpop ]
-description: A Plugin for Server Essentials
+description: A comprehensive essentials plugin for Minecraft Paper servers
+
+commands:
+  # Teleportation Commands
+  tp:
+    description: Teleport to another player
+    usage: /tp <player>
+    permission: frizzlenessentials.tp
+  tpa:
+    description: Send a teleport request to another player
+    usage: /tpa <player>
+    permission: frizzlenessentials.tpa
+  tpahere:
+    description: Request a player to teleport to you
+    usage: /tpahere <player>
+    permission: frizzlenessentials.tpahere
+  tpaccept:
+    description: Accept a pending teleport request
+    usage: /tpaccept
+    permission: frizzlenessentials.tpaccept
+  tpdeny:
+    description: Deny a pending teleport request
+    usage: /tpdeny
+    permission: frizzlenessentials.tpdeny
+  tphere:
+    description: Teleport a player to your location
+    usage: /tphere <player>
+    permission: frizzlenessentials.tphere
+  tpall:
+    description: Teleport all players to your location
+    usage: /tpall
+    permission: frizzlenessentials.tpall
+  lastdeath:
+    description: Teleport to your last death location
+    usage: /lastdeath
+    permission: frizzlenessentials.lastdeath
+  tpworld:
+    description: Teleport to a specific world
+    usage: /tpworld <world>
+    permission: frizzlenessentials.tpworld
+  back:
+    description: Return to your previous location
+    usage: /back
+    permission: frizzlenessentials.back
+
+  # Home and Warp Commands
+  sethome:
+    description: Set a home at your current location
+    usage: /sethome [name]
+    permission: frizzlenessentials.sethome
+  home:
+    description: Teleport to one of your homes
+    usage: /home [name]
+    permission: frizzlenessentials.home
+  delhome:
+    description: Delete one of your homes
+    usage: /delhome <name>
+    permission: frizzlenessentials.delhome
+  listhomes:
+    description: List all of your homes
+    usage: /listhomes
+    permission: frizzlenessentials.listhomes
+  setwarp:
+    description: Create a warp at your current location
+    usage: /setwarp <name>
+    permission: frizzlenessentials.setwarp
+  warp:
+    description: Teleport to a warp
+    usage: /warp <name>
+    permission: frizzlenessentials.warp
+  delwarp:
+    description: Delete a warp
+    usage: /delwarp <name>
+    permission: frizzlenessentials.delwarp
+  warpinfo:
+    description: Get information about a warp
+    usage: /warpinfo <warp>
+    permission: frizzlenessentials.warpinfo
+  warpaccess:
+    description: Modify access permissions for a warp
+    usage: /warpaccess <warp> <player>
+    permission: frizzlenessentials.warpaccess
+
+  # Spawn Commands
+  setspawn:
+    description: Set the server spawn location
+    usage: /setspawn
+    permission: frizzlenessentials.setspawn
+  spawn:
+    description: Teleport to the server spawn
+    usage: /spawn
+    permission: frizzlenessentials.spawn
+
+  # Player Utility Commands
+  fly:
+    description: Toggle flight mode for yourself or another player
+    usage: /fly [player]
+    permission: frizzlenessentials.fly
+  god:
+    description: Toggle god mode for yourself or another player
+    usage: /god [player]
+    permission: frizzlenessentials.god
+  heal:
+    description: Restore full health to yourself or another player
+    usage: /heal [player]
+    permission: frizzlenessentials.heal
+  feed:
+    description: Replenish hunger for yourself or another player
+    usage: /feed [player]
+    permission: frizzlenessentials.feed
+  speed:
+    description: Set walking or flying speed
+    usage: /speed <walk/fly> <amount>
+    permission: frizzlenessentials.speed
+  walkspeed:
+    description: Set walking speed
+    usage: /walkspeed <amount>
+    permission: frizzlenessentials.walkspeed
+  jumpboost:
+    description: Grant jump boost effect
+    usage: /jumpboost <level>
+    permission: frizzlenessentials.jumpboost
+  hat:
+    description: Wear the item in your hand as a hat
+    usage: /hat
+    permission: frizzlenessentials.hat
+  itemname:
+    description: Rename the item in your hand
+    usage: /itemname <name>
+    permission: frizzlenessentials.itemname
+  itemlore:
+    description: Add lore to the item in your hand
+    usage: /itemlore <lore>
+    permission: frizzlenessentials.itemlore
+  repair:
+    description: Repair the item in your hand or all items
+    usage: /repair [hand/all]
+    permission: frizzlenessentials.repair
+  stack:
+    description: Merge similar items in your inventory
+    usage: /stack
+    permission: frizzlenessentials.stack
+  more:
+    description: Get a full stack of the item in your hand
+    usage: /more
+    permission: frizzlenessentials.more
+
+  # Fun and Interaction Commands
+  sit:
+    description: Sit on the ground
+    usage: /sit
+    permission: frizzlenessentials.sit
+  lay:
+    description: Lay down on the ground
+    usage: /lay
+    permission: frizzlenessentials.lay
+  crawl:
+    description: Crawl on the ground
+    usage: /crawl
+    permission: frizzlenessentials.crawl
+  spin:
+    description: Spin in place
+    usage: /spin
+    permission: frizzlenessentials.spin
+
+  # Server and Administrative Tools
+  uptime:
+    description: Display server uptime
+    usage: /uptime
+    permission: frizzlenessentials.uptime
+  gc:
+    description: Run garbage collection
+    usage: /gc
+    permission: frizzlenessentials.gc
+  debug:
+    description: Get debug information about a player
+    usage: /debug <player>
+    permission: frizzlenessentials.debug
+  daylock:
+    description: Lock the time to day
+    usage: /daylock
+    permission: frizzlenessentials.daylock
+  nightlock:
+    description: Lock the time to night
+    usage: /nightlock
+    permission: frizzlenessentials.nightlock
+  ptime:
+    description: Set your personal time
+    usage: /ptime <day/night/reset>
+    permission: frizzlenessentials.ptime
+  pweather:
+    description: Set your personal weather
+    usage: /pweather <clear/rain/thunder/reset>
+    permission: frizzlenessentials.pweather
+  worldinfo:
+    description: Get information about the current world
+    usage: /worldinfo
+    permission: frizzlenessentials.worldinfo
+  sudo:
+    description: Force a player to run a command
+    usage: /sudo <player> <command>
+    permission: frizzlenessentials.sudo
+  invsee:
+    description: View a player's inventory
+    usage: /invsee <player>
+    permission: frizzlenessentials.invsee
+  endersee:
+    description: View a player's ender chest
+    usage: /endersee <player>
+    permission: frizzlenessentials.endersee
+  broadcast:
+    description: Send a message to all players
+    usage: /broadcast <message>
+    permission: frizzlenessentials.broadcast
+  kill:
+    description: Kill a player
+    usage: /kill <player>
+    permission: frizzlenessentials.kill
+  clearinventory:
+    description: Clear a player's inventory
+    usage: /clearinventory <player>
+    permission: frizzlenessentials.clearinventory
+  vanish:
+    description: Toggle invisibility
+    usage: /vanish
+    permission: frizzlenessentials.vanish
+  glow:
+    description: Make a player glow with a specified color
+    usage: /glow [player] <color>
+    permission: frizzlenessentials.glow
+
+permissions:
+  frizzlenessentials.*:
+    description: Grants access to all FrizzlenEssentials commands
+    children:
+      frizzlenessentials.tp: true
+      frizzlenessentials.tpa: true
+      frizzlenessentials.tpahere: true
+      frizzlenessentials.tpaccept: true
+      frizzlenessentials.tpdeny: true
+      frizzlenessentials.tphere: true
+      frizzlenessentials.tpall: true
+      frizzlenessentials.lastdeath: true
+      frizzlenessentials.tpworld: true
+      frizzlenessentials.back: true
+      frizzlenessentials.sethome: true
+      frizzlenessentials.home: true
+      frizzlenessentials.delhome: true
+      frizzlenessentials.listhomes: true
+      frizzlenessentials.setwarp: true
+      frizzlenessentials.warp: true
+      frizzlenessentials.delwarp: true
+      frizzlenessentials.warpinfo: true
+      frizzlenessentials.warpaccess: true
+      frizzlenessentials.setspawn: true
+      frizzlenessentials.spawn: true
+      frizzlenessentials.fly: true
+      frizzlenessentials.god: true
+      frizzlenessentials.heal: true
+      frizzlenessentials.feed: true
+      frizzlenessentials.speed: true
+      frizzlenessentials.walkspeed: true
+      frizzlenessentials.jumpboost: true
+      frizzlenessentials.hat: true
+      frizzlenessentials.itemname: true
+      frizzlenessentials.itemlore: true
+      frizzlenessentials.repair: true
+      frizzlenessentials.stack: true
+      frizzlenessentials.more: true
+      frizzlenessentials.sit: true
+      frizzlenessentials.lay: true
+      frizzlenessentials.crawl: true
+      frizzlenessentials.spin: true
+      frizzlenessentials.uptime: true
+      frizzlenessentials.gc: true
+      frizzlenessentials.debug: true
+      frizzlenessentials.daylock: true
+      frizzlenessentials.nightlock: true
+      frizzlenessentials.ptime: true
+      frizzlenessentials.pweather: true
+      frizzlenessentials.worldinfo: true
+      frizzlenessentials.sudo: true
+      frizzlenessentials.invsee: true
+      frizzlenessentials.invsee.edit: true
+      frizzlenessentials.endersee: true
+      frizzlenessentials.endersee.edit: true
+      frizzlenessentials.broadcast: true
+      frizzlenessentials.kill: true
+      frizzlenessentials.clearinventory: true
+      frizzlenessentials.vanish: true
+      frizzlenessentials.glow: true
+
+  frizzlenessentials.admin:
+    description: Grants access to administrative commands
+    children:
+      frizzlenessentials.tpall: true
+      frizzlenessentials.setspawn: true
+      frizzlenessentials.setwarp: true
+      frizzlenessentials.delwarp: true
+      frizzlenessentials.warpaccess: true
+      frizzlenessentials.gc: true
+      frizzlenessentials.debug: true
+      frizzlenessentials.daylock: true
+      frizzlenessentials.nightlock: true
+      frizzlenessentials.sudo: true
+      frizzlenessentials.invsee: true
+      frizzlenessentials.invsee.edit: true
+      frizzlenessentials.endersee: true
+      frizzlenessentials.endersee.edit: true
+      frizzlenessentials.broadcast: true
+      frizzlenessentials.kill: true
+      frizzlenessentials.clearinventory: true
+
+  frizzlenessentials.user:
+    description: Grants access to basic user commands
+    children:
+      frizzlenessentials.tp: true
+      frizzlenessentials.tpa: true
+      frizzlenessentials.tpahere: true
+      frizzlenessentials.tpaccept: true
+      frizzlenessentials.tpdeny: true
+      frizzlenessentials.back: true
+      frizzlenessentials.lastdeath: true
+      frizzlenessentials.sethome: true
+      frizzlenessentials.home: true
+      frizzlenessentials.delhome: true
+      frizzlenessentials.listhomes: true
+      frizzlenessentials.warp: true
+      frizzlenessentials.warpinfo: true
+      frizzlenessentials.spawn: true
+      frizzlenessentials.sit: true
+      frizzlenessentials.lay: true
+      frizzlenessentials.crawl: true
+      frizzlenessentials.spin: true
