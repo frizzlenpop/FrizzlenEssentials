@@ -188,6 +188,12 @@ messages:
     vanish-disabled: "{SUCCESS}Vanish mode disabled."
     glow-enabled: "{SUCCESS}Glow effect enabled with color {HIGHLIGHT}{color}{SUCCESS}."
     glow-disabled: "{SUCCESS}Glow effect disabled."
+    invsee:
+      opened: "{SUCCESS}Opened {HIGHLIGHT}{player}{SUCCESS}'s inventory."
+      cannot-modify: "{ERROR}You don't have permission to modify this inventory."
+    endersee:
+      opened: "{SUCCESS}Opened {HIGHLIGHT}{player}{SUCCESS}'s ender chest."
+      cannot-modify: "{ERROR}You don't have permission to modify this ender chest."
     
   errors:
     no-permission: "{ERROR}You don't have permission to use this command."
@@ -197,6 +203,8 @@ messages:
     invalid-syntax: "{ERROR}Invalid syntax. Usage: {HIGHLIGHT}{usage}"
     cooldown: "{ERROR}You must wait {HIGHLIGHT}{time} {ERROR}seconds before using this command again."
     target-is-self: "{ERROR}You cannot target yourself with this command."
+    cannot-target-self: "{ERROR}You cannot target yourself with this command."
+    cannot-teleport-to-self: "{ERROR}You cannot teleport to yourself."
     invalid-world: "{ERROR}Invalid world."
     invalid-item: "{ERROR}You must be holding an item to use this command."
     invalid-number: "{ERROR}Invalid number." 
