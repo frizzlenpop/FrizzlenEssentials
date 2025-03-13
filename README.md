@@ -1,132 +1,70 @@
 # FrizzlenEssentials
 
-A comprehensive essentials plugin for Minecraft Paper servers.
+A comprehensive essentials plugin for Minecraft Paper servers designed to provide a wide range of administrative, utility, and quality-of-life features.
+
+## Overview
+
+FrizzlenEssentials is a feature-rich plugin for Paper Minecraft servers that aims to provide server administrators with essential tools for managing their server while also offering players convenient commands to enhance their gameplay experience. The plugin has been designed with flexibility and customization in mind, allowing server owners to tailor the functionality to their specific needs.
 
 ## Features
 
-- Teleportation system with requests and cooldowns
-- Home system with multiple homes per player
-- Warp system with public and private warps
-- Spawn management
-- Player utility commands
-- Fun interaction commands
-- Administrative tools
-- Configurable messages and permissions
+FrizzlenEssentials includes a wide variety of features organized into the following categories:
 
-## Commands
+- [**Teleportation System**](docs/teleportation.md) - A comprehensive teleportation system with teleport requests, cooldowns, and history
+- [**Homes System**](docs/homes.md) - Allows players to set, teleport to, and manage multiple homes
+- [**Warps System**](docs/warps.md) - Public and private warp points with access control
+- [**Spawn Management**](docs/spawn.md) - Server spawn point management and player teleportation
+- [**Player Utilities**](docs/player-utilities.md) - Various player-focused utility commands
+- [**Fun Commands**](docs/fun-commands.md) - Commands that add fun interactions and animations
+- [**Administrative Tools**](docs/admin-tools.md) - Server administration and management commands
 
-### Teleportation Commands
-| Command | Description | Permission |
-|---------|-------------|------------|
-| `/tp <player>` | Teleport to another player | `frizzlenessentials.tp` |
-| `/tpa <player>` | Send a teleport request | `frizzlenessentials.tpa` |
-| `/tpahere <player>` | Request a player to teleport to you | `frizzlenessentials.tpahere` |
-| `/tpaccept` | Accept a teleport request | `frizzlenessentials.tpaccept` |
-| `/tpdeny` | Deny a teleport request | `frizzlenessentials.tpdeny` |
-| `/tphere <player>` | Teleport a player to you | `frizzlenessentials.tphere` |
-| `/tpall` | Teleport all players to you | `frizzlenessentials.tpall` |
-| `/lastdeath` | Teleport to your last death location | `frizzlenessentials.lastdeath` |
-| `/tpworld <world>` | Teleport to a specific world | `frizzlenessentials.tpworld` |
-| `/back` | Return to your previous location | `frizzlenessentials.back` |
+## Installation
 
-### Home Commands
-| Command | Description | Permission |
-|---------|-------------|------------|
-| `/sethome [name]` | Set a home at your location | `frizzlenessentials.sethome` |
-| `/home [name]` | Teleport to your home | `frizzlenessentials.home` |
-| `/delhome <name>` | Delete a home | `frizzlenessentials.delhome` |
-| `/listhomes` | List all your homes | `frizzlenessentials.listhomes` |
-
-### Warp Commands
-| Command | Description | Permission |
-|---------|-------------|------------|
-| `/setwarp <name>` | Create a warp at your location | `frizzlenessentials.setwarp` |
-| `/warp <name>` | Teleport to a warp | `frizzlenessentials.warp` |
-| `/delwarp <name>` | Delete a warp | `frizzlenessentials.delwarp` |
-| `/warpinfo <name>` | View information about a warp | `frizzlenessentials.warpinfo` |
-| `/warpaccess <warp> <add|remove|public|private> [player]` | Modify warp access | `frizzlenessentials.warpaccess` |
-
-### Spawn Commands
-| Command | Description | Permission |
-|---------|-------------|------------|
-| `/setspawn` | Set the server spawn location | `frizzlenessentials.setspawn` |
-| `/spawn` | Teleport to spawn | `frizzlenessentials.spawn` |
-
-### Utility Commands
-| Command | Description | Permission |
-|---------|-------------|------------|
-| `/fly [player]` | Toggle flight mode | `frizzlenessentials.fly` |
-| `/god [player]` | Toggle god mode | `frizzlenessentials.god` |
-| `/heal [player]` | Restore health and hunger | `frizzlenessentials.heal` |
-| `/feed [player]` | Restore hunger | `frizzlenessentials.feed` |
-| `/speed <1-10> [player] [fly|walk]` | Set movement speed | `frizzlenessentials.speed` |
-| `/walkspeed <1-10> [player]` | Set walking speed | `frizzlenessentials.walkspeed` |
-| `/jumpboost <0-10> [player] [duration]` | Set jump boost level | `frizzlenessentials.jumpboost` |
-| `/hat` | Wear item as hat | `frizzlenessentials.hat` |
-| `/itemname <name>` | Rename held item | `frizzlenessentials.itemname` |
-| `/itemlore <add|set|clear> [line] [text]` | Modify item lore | `frizzlenessentials.itemlore` |
-| `/repair [all]` | Repair items | `frizzlenessentials.repair` |
-| `/stack` | Stack similar items | `frizzlenessentials.stack` |
-| `/more` | Fill item stack | `frizzlenessentials.more` |
-
-### Fun Commands
-| Command | Description | Permission |
-|---------|-------------|------------|
-| `/sit` | Sit on the ground | `frizzlenessentials.sit` |
-| `/lay` | Lay on the ground | `frizzlenessentials.lay` |
-| `/crawl` | Crawl on the ground | `frizzlenessentials.crawl` |
-| `/spin` | Spin in place | `frizzlenessentials.spin` |
-
-### Administrative Commands
-| Command | Description | Permission |
-|---------|-------------|------------|
-| `/uptime` | Display server uptime | `frizzlenessentials.uptime` |
-| `/gc` | Run garbage collection | `frizzlenessentials.gc` |
-| `/debug [info]` | Toggle debug mode | `frizzlenessentials.debug` |
-| `/daylock` | Lock time to day | `frizzlenessentials.daylock` |
-| `/nightlock` | Lock time to night | `frizzlenessentials.nightlock` |
-| `/ptime <time|reset> [player]` | Set player time | `frizzlenessentials.ptime` |
-| `/pweather <clear|rain|reset> [player]` | Set player weather | `frizzlenessentials.pweather` |
-| `/worldinfo` | Display world information | `frizzlenessentials.worldinfo` |
-| `/sudo <player> <command>` | Force player to run command | `frizzlenessentials.sudo` |
-| `/invsee <player>` | View player's inventory | `frizzlenessentials.invsee` |
-| `/endersee <player>` | View player's ender chest | `frizzlenessentials.endersee` |
-| `/broadcast <message>` | Broadcast a message | `frizzlenessentials.broadcast` |
-| `/kill <player>` | Kill a player | `frizzlenessentials.kill` |
-| `/clearinventory <player>` | Clear player's inventory | `frizzlenessentials.clearinventory` |
-| `/vanish [player]` | Toggle invisibility | `frizzlenessentials.vanish` |
-| `/glow [player] <color>` | Make player glow | `frizzlenessentials.glow` |
-
-## Permission Groups
-
-### Administrator Permissions
-- `frizzlenessentials.admin` - Grants access to all administrative commands
-  - Includes all administrative command permissions
-  - Access to modify warps and spawn points
-  - Ability to manage other players
-
-### User Permissions
-- `frizzlenessentials.user` - Grants access to basic user commands
-  - Basic teleportation commands
-  - Home management
-  - Basic warp usage
-  - Fun commands
-
-### Special Permissions
-- `frizzlenessentials.sudo.exempt` - Prevents being targeted by sudo command
-- `frizzlenessentials.vanish.see` - Ability to see vanished players
-- `frizzlenessentials.*.others` - Allows using commands on other players (e.g., `frizzlenessentials.fly.others`)
+1. Download the latest FrizzlenEssentials.jar from the [releases page](https://github.com/frizzlenpop/frizzlenessentials/releases)
+2. Place the jar file in your server's `plugins` folder
+3. Restart your server
+4. Edit the configuration files in the `plugins/FrizzlenEssentials` folder to customize the plugin to your needs
 
 ## Configuration
 
-The plugin uses a main configuration file (`config.yml`) that includes:
-- Message customization
-- Color schemes
-- Command cooldowns
-- Feature toggles
+FrizzlenEssentials stores its configuration in the following files:
 
-### Message Format
-Messages use color codes and placeholders:
-- `{PRIMARY}`, `{SECONDARY}`, `{HIGHLIGHT}` - Color scheme placeholders
-- `{player}`, `{world}`, etc. - Dynamic content placeholders
-- Standard Minecraft color codes (e.g., &a, &b) 
+- `config.yml` - Main configuration file
+- `homes.yml` - Home data
+- `warps.yml` - Warp data
+- `spawn.yml` - Spawn data
+- `locations.yml` - Location data (for teleportation)
+- `players.yml` - Player-specific data
+
+The `config.yml` file contains settings for all aspects of the plugin, including:
+
+- Storage configuration
+- Teleportation settings (cooldowns, delays, etc.)
+- Home settings (limits, permissions)
+- Warp settings
+- Spawn settings
+- Player utility settings
+- Administrative settings
+- Custom messages and colors
+
+## Permissions
+
+FrizzlenEssentials uses a permission-based system to control access to commands and features. The plugin includes the following permission groups:
+
+- `frizzlenessentials.*` - Grants access to all commands and features
+- `frizzlenessentials.admin` - Grants access to administrative commands
+- `frizzlenessentials.user` - Grants access to basic user commands
+
+Individual permissions for each command follow the format `frizzlenessentials.<command>`. For more detailed information, see the feature-specific documentation.
+
+## Commands
+
+For a full list of commands, see the feature-specific documentation linked in the [Features](#features) section.
+
+## Support
+
+If you encounter any issues or have questions about FrizzlenEssentials, please [create an issue](https://github.com/frizzlenpop/frizzlenessentials/issues) on the GitHub repository.
+
+## License
+
+FrizzlenEssentials is released under the [MIT License](LICENSE). 
