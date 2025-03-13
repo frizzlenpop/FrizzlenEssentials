@@ -53,7 +53,7 @@ public class UptimeCommand extends BaseCommand {
         // Send the uptime message
         MessageUtils.sendConfigMessage(sender, "messages.admin.uptime", 
                 "Server has been running for {time}.", 
-                "time", message.toString().trim());
+                "uptime", message.toString().trim());
         
         return true;
     }
