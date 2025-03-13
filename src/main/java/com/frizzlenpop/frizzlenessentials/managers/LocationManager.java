@@ -132,6 +132,10 @@ public class LocationManager {
         
         // Save the config
         plugin.getConfigManager().saveLocationsConfig();
+        
+        // Also save all configs to ensure changes are written to disk
+        plugin.getConfigManager().saveConfigs();
+        
         plugin.getLogger().info("Saved " + lastDeathLocations.size() + " death locations and " + backLocations.size() + " back location stacks.");
     }
     
@@ -187,6 +191,9 @@ public class LocationManager {
         if (player == null || location == null) return;
         
         lastDeathLocations.put(player.getUniqueId(), location.clone());
+        
+        // Save location immediately to ensure persistence
+        saveAllLocations();
     }
     
     /**
@@ -213,16 +220,19 @@ public class LocationManager {
         
         UUID uuid = player.getUniqueId();
         
-        // Get or create the player's back stack
+        // Get or create deque
         Deque<Location> locations = backLocations.computeIfAbsent(uuid, k -> new LinkedList<>());
         
-        // Add the location to the stack
-        locations.push(location.clone());
+        // Add location to the front
+        locations.addFirst(location.clone());
         
-        // Trim the stack if it exceeds the maximum size
+        // Enforce max back locations
         while (locations.size() > maxBackLocations) {
             locations.removeLast();
         }
+        
+        // Save locations immediately to ensure persistence
+        saveAllLocations();
     }
     
     /**

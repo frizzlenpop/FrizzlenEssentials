@@ -74,6 +74,11 @@ public class FrizzlenEssentials extends JavaPlugin {
             locationManager.saveAllLocations();
         }
         
+        if (spawnManager != null) {
+            // Explicitly save spawn data
+            spawnManager.saveSpawn();
+        }
+        
         if (configManager != null) {
             configManager.saveConfigs();
         }

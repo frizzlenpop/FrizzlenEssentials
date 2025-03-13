@@ -61,7 +61,11 @@ public class SpawnManager {
             plugin.getLogger().info("Cleared spawn location.");
         }
         
+        // Save the spawn config file immediately to ensure it's persisted to disk
         plugin.getConfigManager().saveSpawnConfig();
+        
+        // Also save all configs to ensure changes are written to disk
+        plugin.getConfigManager().saveConfigs();
     }
     
     /**

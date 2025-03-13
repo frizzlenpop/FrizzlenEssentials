@@ -92,5 +92,8 @@ public class PlayerListener implements Listener {
         
         // Save the config
         plugin.getConfigManager().savePlayersConfig();
+        
+        // Also save all configs to ensure changes are written to disk
+        plugin.getConfigManager().saveConfigs();
     }
 } 

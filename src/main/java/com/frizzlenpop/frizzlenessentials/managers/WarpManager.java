@@ -128,6 +128,10 @@ public class WarpManager {
         
         // Save the config
         plugin.getConfigManager().saveWarpsConfig();
+        
+        // Also save all configs to ensure changes are written to disk
+        plugin.getConfigManager().saveConfigs();
+        
         plugin.getLogger().info("Saved " + warps.size() + " warps.");
     }
     
@@ -203,6 +207,12 @@ public class WarpManager {
             warpAccess.put(name, accessSet);
         }
         
+        // Save warps to ensure persistence
+        saveAllWarps();
+        
+        // Also save all configs to ensure changes are written to disk
+        plugin.getConfigManager().saveConfigs();
+        
         MessageUtils.sendConfigMessage(player, "messages.warp.warp-set", "Warp {name} has been created.", "name", warpName);
         return true;
     }
@@ -238,6 +248,12 @@ public class WarpManager {
         warps.remove(name);
         warpCreators.remove(name);
         warpAccess.remove(name);
+        
+        // Save warps to ensure persistence
+        saveAllWarps();
+        
+        // Also save all configs to ensure changes are written to disk
+        plugin.getConfigManager().saveConfigs();
         
         MessageUtils.sendConfigMessage(player, "messages.warp.warp-deleted", "Warp {name} has been deleted.", "name", warpName);
         return true;
@@ -331,6 +347,12 @@ public class WarpManager {
         if (accessSet.isEmpty() && publicByDefault) {
             warpAccess.remove(name);
         }
+        
+        // Save warps to ensure persistence
+        saveAllWarps();
+        
+        // Also save all configs to ensure changes are written to disk
+        plugin.getConfigManager().saveConfigs();
         
         MessageUtils.sendConfigMessage(admin, "messages.warp.warp-access-modified", "Access for warp {name} has been modified for player {player}.", 
                 "name", warpName, "player", targetPlayer.getName());

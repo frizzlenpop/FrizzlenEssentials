@@ -98,6 +98,10 @@ public class HomeManager {
         
         // Save the config
         plugin.getConfigManager().saveHomesConfig();
+        
+        // Also save all configs to ensure changes are written to disk
+        plugin.getConfigManager().saveConfigs();
+        
         plugin.getLogger().info("Saved " + playerHomes.size() + " players' homes.");
     }
     
@@ -185,8 +189,11 @@ public class HomeManager {
             MessageUtils.sendConfigMessage(player, "messages.home.home-set", "Home {name} has been set.", "name", homeName);
         }
         
-        // Save the homes
+        // Save the homes immediately to ensure persistence
         saveAllHomes();
+        
+        // Also save all configs to ensure changes are written to disk
+        plugin.getConfigManager().saveConfigs();
         
         return true;
     }
@@ -225,6 +232,9 @@ public class HomeManager {
         if (homes.isEmpty()) {
             playerHomes.remove(uuid);
         }
+        
+        // Save the changes immediately
+        saveAllHomes();
         
         MessageUtils.sendConfigMessage(player, "messages.home.home-deleted", "Home {name} has been deleted.", "name", homeName);
         return true;

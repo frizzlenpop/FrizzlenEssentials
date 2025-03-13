@@ -26,6 +26,10 @@ public class SetSpawnCommand extends BaseCommand {
         // Also set the world's spawn point
         player.getWorld().setSpawnLocation(player.getLocation());
         
+        // Make sure the spawn point is saved to disk
+        plugin.getSpawnManager().saveSpawn();
+        plugin.getConfigManager().saveConfigs();
+        
         // Send a success message
         MessageUtils.sendConfigMessage(player, "messages.spawn.spawn-set", "Server spawn location has been set.");
         
