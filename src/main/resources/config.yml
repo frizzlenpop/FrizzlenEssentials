@@ -116,6 +116,16 @@ messages:
     teleport-back: "{PRIMARY}Teleporting to your previous location."
     no-back-location: "{ERROR}No previous location found."
     
+  top:
+    teleported: "{PRIMARY}Teleported to the highest block at your position."
+    no-blocks-above: "{ERROR}There are no blocks above your position."
+    
+  up:
+    teleported: "{PRIMARY}Teleported {HIGHLIGHT}{distance} {PRIMARY}blocks upward."
+    invalid-distance: "{ERROR}Distance must be greater than 0."
+    max-distance-exceeded: "{WARNING}Maximum distance is {HIGHLIGHT}{max}{WARNING}. Using that instead."
+    max-height-reached: "{WARNING}Maximum world height reached. Teleporting to highest possible position."
+    
   home:
     home-set: "{SUCCESS}Home {HIGHLIGHT}{name} {SUCCESS}has been set."
     home-override: "{WARNING}Home {HIGHLIGHT}{name} {WARNING}already exists. It has been overridden."

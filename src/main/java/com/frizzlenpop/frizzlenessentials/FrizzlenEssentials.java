@@ -138,6 +138,8 @@ public class FrizzlenEssentials extends JavaPlugin {
         getCommand("lastdeath").setExecutor(new LastDeathCommand(this));
         getCommand("tpworld").setExecutor(new TpWorldCommand(this));
         getCommand("back").setExecutor(new BackCommand(this));
+        getCommand("top").setExecutor(new TopCommand(this));
+        getCommand("up").setExecutor(new UpCommand(this));
     }
     
     private void registerHomeWarpCommands() {

@@ -48,6 +48,14 @@ commands:
     description: Return to your previous location
     usage: /back
     permission: frizzlenessentials.back
+  top:
+    description: Teleport to the highest block at your position
+    usage: /top
+    permission: frizzlenessentials.top
+  up:
+    description: Teleport upward and place a glass block below you
+    usage: /up [distance]
+    permission: frizzlenessentials.up
 
   # Home and Warp Commands
   sethome:
