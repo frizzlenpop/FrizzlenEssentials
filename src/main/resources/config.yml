@@ -205,6 +205,20 @@ messages:
       opened: "{SUCCESS}Opened {HIGHLIGHT}{player}{SUCCESS}'s ender chest."
       cannot-modify: "{ERROR}You don't have permission to modify this ender chest."
     
+    # Nickname command messages
+    nick:
+      set: "{SUCCESS}Your nickname has been set to: {HIGHLIGHT}{nickname}"
+      set-other: "{SUCCESS}You have set {HIGHLIGHT}{player}{SUCCESS}'s nickname to: {HIGHLIGHT}{nickname}"
+      set-by-other: "{SUCCESS}Your nickname has been set to {HIGHLIGHT}{nickname} {SUCCESS}by {HIGHLIGHT}{player}"
+      removed: "{SUCCESS}Your nickname has been removed."
+      removed-other: "{SUCCESS}You have removed {HIGHLIGHT}{player}{SUCCESS}'s nickname."
+      removed-by-other: "{SUCCESS}Your nickname has been removed by {HIGHLIGHT}{player}"
+      no-nickname: "{INFO}You don't have a nickname set."
+      no-nickname-other: "{INFO}{HIGHLIGHT}{player} {INFO}doesn't have a nickname set."
+      current-nickname: "{INFO}Your current nickname is: {HIGHLIGHT}{nickname}"
+      current-nickname-other: "{INFO}{HIGHLIGHT}{player}{INFO}'s current nickname is: {HIGHLIGHT}{nickname}"
+      too-long: "{ERROR}Nickname is too long (max 32 characters)."
+  
   errors:
     no-permission: "{ERROR}You don't have permission to use this command."
     player-not-found: "{ERROR}Player not found."

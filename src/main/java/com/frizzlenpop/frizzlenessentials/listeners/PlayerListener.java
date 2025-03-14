@@ -64,6 +64,12 @@ public class PlayerListener implements Listener {
             // For now, just store the state
             playersConfig.set("players." + uuid + ".godmode", true);
         }
+        
+        // Apply nickname if set
+        String nickname = playersConfig.getString("players." + uuid + ".nickname");
+        if (nickname != null && !nickname.isEmpty() && player.hasPermission("frizzlenessentials.nick")) {
+            player.setDisplayName(nickname);
+        }
     }
     
     /**
@@ -88,6 +94,11 @@ public class PlayerListener implements Listener {
             // For now, just get the stored state
             boolean godMode = playersConfig.getBoolean("players." + uuid + ".godmode", false);
             playersConfig.set("players." + uuid + ".godmode", godMode);
+        }
+        
+        // Save nickname if different from player name
+        if (!player.getDisplayName().equals(player.getName())) {
+            playersConfig.set("players." + uuid + ".nickname", player.getDisplayName());
         }
         
         // Save the config

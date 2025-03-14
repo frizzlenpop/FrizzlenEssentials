@@ -8,6 +8,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,11 +54,25 @@ public class InvSeeCommand extends BaseCommand {
             return true;
         }
         
-        // Create inventory view
-        Inventory inventory = Bukkit.createInventory(target, 36, target.getName() + "'s Inventory");
+        // Create inventory view - use a double chest size (54 slots) for more space
+        Inventory inventory = Bukkit.createInventory(null, 54, target.getName() + "'s Inventory");
         
-        // Copy inventory contents
-        inventory.setContents(target.getInventory().getContents());
+        // Get player inventory contents (main inventory only)
+        ItemStack[] contents = target.getInventory().getStorageContents();
+        
+        // Copy main inventory contents (first 36 slots)
+        for (int i = 0; i < contents.length && i < 36; i++) {
+            inventory.setItem(i, contents[i]);
+        }
+        
+        // Copy armor contents (in the last row for visibility)
+        ItemStack[] armorContents = target.getInventory().getArmorContents();
+        for (int i = 0; i < armorContents.length && i < 4; i++) {
+            inventory.setItem(45 + i, armorContents[i]);
+        }
+        
+        // Copy offhand (last slot)
+        inventory.setItem(49, target.getInventory().getItemInOffHand());
         
         // Open inventory for player
         player.openInventory(inventory);

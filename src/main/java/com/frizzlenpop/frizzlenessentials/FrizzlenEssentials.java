@@ -105,6 +105,7 @@ public class FrizzlenEssentials extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new TeleportListener(this), this);
         getServer().getPluginManager().registerEvents(new InventoryListener(this), this);
         getServer().getPluginManager().registerEvents(new VanishListener(this), this);
+        getServer().getPluginManager().registerEvents(new ChatListener(this), this);
     }
     
     private void registerCommands() {
@@ -173,6 +174,7 @@ public class FrizzlenEssentials extends JavaPlugin {
         getCommand("repair").setExecutor(new RepairCommand(this));
         getCommand("stack").setExecutor(new StackCommand(this));
         getCommand("more").setExecutor(new MoreCommand(this));
+        getCommand("nick").setExecutor(new NickCommand(this));
     }
     
     private void registerFunCommands() {

@@ -158,6 +158,10 @@ commands:
     description: Get a full stack of the item in your hand
     usage: /more
     permission: frizzlenessentials.more
+  nick:
+    description: Set your nickname
+    usage: /nick [nickname/off] or /nick [player] [nickname/off]
+    permission: frizzlenessentials.nick
 
   # Fun and Interaction Commands
   sit:
@@ -281,6 +285,9 @@ permissions:
       frizzlenessentials.repair: true
       frizzlenessentials.stack: true
       frizzlenessentials.more: true
+      frizzlenessentials.nick: true
+      frizzlenessentials.nick.others: true
+      frizzlenessentials.nick.color: true
       frizzlenessentials.sit: true
       frizzlenessentials.lay: true
       frizzlenessentials.crawl: true
@@ -324,6 +331,8 @@ permissions:
       frizzlenessentials.broadcast: true
       frizzlenessentials.kill: true
       frizzlenessentials.clearinventory: true
+      frizzlenessentials.nick.others: true
+      frizzlenessentials.nick.color: true
 
   frizzlenessentials.user:
     description: Grants access to basic user commands
@@ -342,6 +351,7 @@ permissions:
       frizzlenessentials.warp: true
       frizzlenessentials.warpinfo: true
       frizzlenessentials.spawn: true
+      frizzlenessentials.nick: true
       frizzlenessentials.sit: true
       frizzlenessentials.lay: true
       frizzlenessentials.crawl: true
